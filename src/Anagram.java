@@ -5,13 +5,12 @@ public class Anagram {
 		String[] massToReverse = wordToReverse.split("\\p{Space}");
 
 		for (String word : massToReverse) {
-			for (int letterPosition = 0; letterPosition < word.length(); letterPosition++) {
-				if (isLetter(word.substring(letterPosition,letterPosition+1))) {
-					System.out.println(word.substring(letterPosition,letterPosition+1));
+			String[] massLetters = word.split("");
+			for (int i = massLetters.length - 1; i >= 0; i--) {
+				if (isLetter(massLetters[i])) {
+					swap(massLetters, i);
 				}
-				else {
-					
-				}
+				System.out.println(massLetters[i]);
 			}
 		}
 		/*
@@ -36,5 +35,9 @@ public class Anagram {
 			return true;
 		}
 		return false;
+	}
+
+	private static void swap(String[] mass, int position) {
+
 	}
 }
