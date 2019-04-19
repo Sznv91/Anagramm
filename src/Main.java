@@ -8,6 +8,6 @@ public class Main {
 		String text = reader.readLine();
 		reader.close();
 		Anagram anagram = new Anagram();
-        anagram.reverseWord(text);
-    }
+		anagram.invert(text);
+	}
 }
