@@ -1,8 +1,8 @@
 
 public class Anagram {
 
-	public void reverseWord(String wordToReverse) {
-		String[] massToReverse = splitWords(wordToReverse);
+	public void invert(String wordToReverse) {
+		String[] massToReverse = wordToReverse.split("\\p{Space}");
 
 		for (String word : massToReverse) {
 			String onlyLetter = makeOnlyLetter(word);
@@ -17,11 +17,6 @@ public class Anagram {
 			}
 			System.out.print(onlyLetter + " ");
 		}
-	}
-
-	private static String[] splitWords(String stringForReverse) {
-		String[] words = stringForReverse.split("\\p{Space}");
-		return words;
 	}
 
 	private static String makeOnlyLetter(String word) {
