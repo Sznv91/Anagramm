@@ -1,9 +1,13 @@
+import java.io.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Hi! Please enter string for reverse");
+		String text = reader.readLine();
+		reader.close();
 		Anagram anagram = new Anagram();
-        String stringForReverse = "a1bcd efg!h";
-        anagram.reverseWord(stringForReverse);
+        anagram.reverseWord(text);
     }
 }
