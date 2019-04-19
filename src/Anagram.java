@@ -1,16 +1,7 @@
 
-public class Anagramm {
+public class Anagram {
 
-	public static void main(String[] args) {
-
-        String stringForReverse = "a1bcd efg!h";
-
-
-        reverseWord(stringForReverse);
-    }
-
-
-    private static void reverseWord (String wordToReverse){
+    public static void reverseWord (String wordToReverse){
         String[] massToReverse = splitWords(wordToReverse);
 
         for (String currentWord : massToReverse){
