@@ -1,34 +1,36 @@
 
 public class Anagram {
 
-	public void invert(String wordToReverse) {
+	public String invert(String wordToReverse) {
+		String reversedStr = "";
 		String[] massToReverse = wordToReverse.split("\\p{Space}");
 
 		for (String word : massToReverse) {
 			String[] massLetters = word.split("");
-			for (int i = massLetters.length - 1; i >= 0; i--) {
+			int len = massLetters.length - 1;
+			int counter = massLetters.length - 1;
+			
+			for (int i = 0; i <= len / 2; i++) {
 				if (isLetter(massLetters[i])) {
-					swap(massLetters, i);
+					if (isLetter(massLetters[counter])) {
+						String tmpLetter = massLetters[i];
+						massLetters[i] = massLetters[counter];
+						massLetters[counter] = tmpLetter;
+						counter--;
+					} else {
+						counter--;
+						i--;
+					}
 				}
-				System.out.println(massLetters[i]);
 			}
+			for (int j = 0; j < massLetters.length; j++) {
+				reversedStr += massLetters[j];
+			}
+			reversedStr += " ";
 		}
-		/*
-		 * for (String word : massToReverse) { String onlyLetter = makeOnlyLetter(word);
-		 * StringBuilder reverseWord = new StringBuilder(onlyLetter).reverse();
-		 * onlyLetter = reverseWord.toString(); StringBuffer buffer = new
-		 * StringBuffer(onlyLetter); for (int j = 0; j < word.length(); j++) { if
-		 * (!isLetter(word.substring(j, j + 1))) { buffer.insert(j, word.substring(j, j
-		 * + 1)); onlyLetter = buffer.toString(); } } System.out.print(onlyLetter +
-		 * " "); }
-		 */
+		reversedStr = reversedStr.substring(0, reversedStr.length() - 1);
+		return reversedStr;
 	}
-
-	/*
-	 * private static String makeOnlyLetter(String word) { String onlyLetter = "";
-	 * for (int i = 0; i < word.length(); i++) { if (isLetter(word.substring(i, i +
-	 * 1))) { onlyLetter += word.substring(i, i + 1); } } return onlyLetter; }
-	 */
 
 	private static boolean isLetter(String substring) {
 		if (substring.matches("\\p{javaLetter}")) {
@@ -37,7 +39,4 @@ public class Anagram {
 		return false;
 	}
 
-	private static void swap(String[] mass, int position) {
-
-	}
 }
