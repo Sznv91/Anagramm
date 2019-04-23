@@ -1,4 +1,4 @@
-package myPackege;
+package org.OneMoreProject.RevertWord;
 
 import java.io.*;
 
