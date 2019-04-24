@@ -1,34 +1,28 @@
 package org.teachProject.anagram;
 
+import java.util.Arrays;
+
 public class RebildAnagram {
 
 	public String reverseText(String wordToReverse) {
 		String[] words = wordToReverse.split(" ");
-		String readySting = "";
+		StringBuilder readySting = new StringBuilder();
 		for (String word : words) {
-			readySting += reversOneWord(word) + " ";
+			readySting.append(reversWord(word));
 		}
-		readySting = readySting.substring(0, readySting.length()-1);
-		return readySting;
+		return readySting.toString();
 	}
 
-	private boolean isLetter(String substring) {
-		if (substring.matches("\\p{javaLetter}")) {
-			return true;
-		}
-		return false;
-	}
-
-	private String reversOneWord(String word) {
-		String readyStr = "";
-		String[] massLetters = word.split("");
+	private String reversWord(String word) {
+		String readyStr;
+		char[] massLetters = word.toCharArray();
 		int len = massLetters.length - 1;
 		int counter = massLetters.length - 1;
 
 		for (int i = 0; i <= len / 2; i++) {
-			if (isLetter(massLetters[i])) {
-				if (isLetter(massLetters[counter])) {
-					String tmpLetter = massLetters[i];
+			if (Character.isLetter(massLetters[i])) {
+				if (Character.isLetter(massLetters[counter])) {
+					char tmpLetter = massLetters[i];
 					massLetters[i] = massLetters[counter];
 					massLetters[counter] = tmpLetter;
 					counter--;
@@ -38,9 +32,7 @@ public class RebildAnagram {
 				}
 			}
 		}
-		for (int i = 0; i < massLetters.length; i++) {
-			readyStr += massLetters[i];
-		}
+		readyStr = Arrays.toString(massLetters);
 		return readyStr;
 	}
 }
