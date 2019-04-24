@@ -1,13 +1,12 @@
-package org.OneMoreProject.RevertWord;
-
+package org.teachProject.anagram;
 
 public class Anagram {
 
-	public String invert(String wordToReverse) {
+	public String reversAllWords(String wordToReverse) {
 		String[] massToReverse = wordToReverse.split("\\p{Space}");
 		String readySting = "";
 		for (String word : massToReverse) {
-			readySting += reversWord(word) + " ";
+			readySting += reversOneWord(word) + " ";
 		}
 		readySting = readySting.substring(0, readySting.length()-1);
 		return readySting;
@@ -20,7 +19,7 @@ public class Anagram {
 		return false;
 	}
 
-	private String reversWord(String word) {
+	private String reversOneWord(String word) {
 		String readyStr = "";
 		String[] massLetters = word.split("");
 		int len = massLetters.length - 1;

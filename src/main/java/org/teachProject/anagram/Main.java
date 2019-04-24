@@ -1,4 +1,4 @@
-package org.OneMoreProject.RevertWord;
+package org.teachProject.anagram;
 
 import java.io.*;
 
@@ -10,6 +10,6 @@ public class Main {
 		String text = reader.readLine();
 		reader.close();
 		Anagram anagram = new Anagram();
-		System.out.println(anagram.invert(text));
+		System.out.println(anagram.reversAllWords(text));
 	}
 }
