@@ -3,9 +3,9 @@ package org.teachProject.anagram;
 public class RebildAnagram {
 
 	public String reverseText(String wordToReverse) {
-		String[] massToReverse = wordToReverse.split("\\p{Space}");
+		String[] words = wordToReverse.split(" ");
 		String readySting = "";
-		for (String word : massToReverse) {
+		for (String word : words) {
 			readySting += reversOneWord(word) + " ";
 		}
 		readySting = readySting.substring(0, readySting.length()-1);
