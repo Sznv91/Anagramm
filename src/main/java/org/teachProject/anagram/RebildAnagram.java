@@ -2,7 +2,7 @@ package org.teachProject.anagram;
 
 public class RebildAnagram {
 
-	public String reversAllWords(String wordToReverse) {
+	public String reverseText(String wordToReverse) {
 		String[] massToReverse = wordToReverse.split("\\p{Space}");
 		String readySting = "";
 		for (String word : massToReverse) {
