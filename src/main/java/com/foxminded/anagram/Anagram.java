@@ -1,30 +1,30 @@
-package org.teachProject.anagram;
+package com.foxminded.anagram;
 
 import java.util.Arrays;
 
-public class RebildAnagram {
+public class Anagram {
 
-	public String reverseText(String wordToReverse) {
-		String[] words = wordToReverse.split(" ");
-		StringBuilder readySting = new StringBuilder();
+	public String reverseText(String text) {
+		String[] words = text.split(" ");
+		StringBuilder result = new StringBuilder();
 		for (String word : words) {
-			readySting.append(reversWord(word));
+			result.append(reversWord(word));
 		}
-		return readySting.toString();
+		return result.toString();
 	}
 
 	private String reversWord(String word) {
 		String readyStr;
-		char[] massLetters = word.toCharArray();
-		int len = massLetters.length - 1;
-		int counter = massLetters.length - 1;
+		char[] symbols = word.toCharArray();
+		int len = symbols.length - 1;
+		int counter = symbols.length - 1;
 
 		for (int i = 0; i <= len / 2; i++) {
-			if (Character.isLetter(massLetters[i])) {
-				if (Character.isLetter(massLetters[counter])) {
-					char tmpLetter = massLetters[i];
-					massLetters[i] = massLetters[counter];
-					massLetters[counter] = tmpLetter;
+			if (Character.isLetter(symbols[i])) {
+				if (Character.isLetter(symbols[counter])) {
+					char tmpLetter = symbols[i];
+					symbols[i] = symbols[counter];
+					symbols[counter] = tmpLetter;
 					counter--;
 				} else {
 					counter--;
@@ -32,7 +32,7 @@ public class RebildAnagram {
 				}
 			}
 		}
-		readyStr = Arrays.toString(massLetters);
+		readyStr = Arrays.toString(symbols);
 		return readyStr;
 	}
 }

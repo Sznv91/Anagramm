@@ -1,4 +1,4 @@
-package org.teachProject.anagram;
+package com.foxminded.anagram;
 
 import java.io.*;
 
@@ -10,6 +10,6 @@ public class Main {
 		String text = reader.readLine();
 		reader.close();
 		Anagram anagram = new Anagram();
-		System.out.println(anagram.reversAllWords(text));
+		System.out.println(anagram.reverseText(text));
 	}
 }
