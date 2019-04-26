@@ -1,39 +1,41 @@
 package com.foxminded.anagram;
 
+import static java.lang.Character.isLetter;
+
 public class Anagram {
 
 	public String reverseText(String text) {
-		String[] words = text.split(" ");
+		String space = " ";
+		String[] words = text.split(space);
 		StringBuilder result = new StringBuilder();
-		for (String word : words) {
-			if (word.equals(words[words.length - 1])) {
-				result.append(reversWord(word));
-			} else
-				result.append(reversWord(word) + " ");
+		for (int i = 0; i < words.length; i++) {
+			result.append(reversWord(words[i]));
+			if (i != words.length - 1) {
+				result.append(space);
+			}
 		}
 		return result.toString();
 	}
 
 	private String reversWord(String word) {
-		String readyStr;
-		char[] symbols = word.toCharArray();
-
-		int rightSymbol = symbols.length - 1;
-		int leftSymbol = 0;
-		while (rightSymbol > (symbols.length - 1) / 2) {
-			if (Character.isLetter(symbols[leftSymbol])) {
-				if (Character.isLetter(symbols[rightSymbol])) {
-					char tmpLetter = symbols[leftSymbol];
-					symbols[leftSymbol] = symbols[rightSymbol];
-					symbols[rightSymbol] = tmpLetter;
-					leftSymbol++;
-					rightSymbol--;
-				} else
-					rightSymbol--;
-			} else
-				leftSymbol++;
+		char[] chars = word.toCharArray();
+		int rightIndex = chars.length - 1;
+		int leftIndex = 0;
+		while (leftIndex < rightIndex) {
+			if (isLetter(chars[leftIndex])) {
+				if (isLetter(chars[rightIndex])) {
+					char tempChar = chars[leftIndex];
+					chars[leftIndex] = chars[rightIndex];
+					chars[rightIndex] = tempChar;
+					leftIndex++;
+					rightIndex--;
+				} else {
+					rightIndex--;
+				}
+			} else {
+				leftIndex++;
+			}
 		}
-		readyStr = new String(symbols);
-		return readyStr;
+		return new String(chars);
 	}
 }
