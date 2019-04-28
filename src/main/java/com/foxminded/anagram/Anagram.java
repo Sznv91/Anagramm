@@ -5,13 +5,13 @@ import static java.lang.Character.isLetter;
 public class Anagram {
 
 	public String reverseText(String text) {
-		String space = " ";
-		String[] words = text.split(space);
+		final String SPACE = " ";
+		String[] words = text.split(SPACE);
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < words.length; i++) {
 			result.append(reversWord(words[i]));
 			if (i != words.length - 1) {
-				result.append(space);
+				result.append(SPACE);
 			}
 		}
 		return result.toString();
