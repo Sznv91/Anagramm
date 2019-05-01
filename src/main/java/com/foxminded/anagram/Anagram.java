@@ -8,10 +8,10 @@ import java.util.Iterator;
 
 public class Anagram {
 
-	static ArrayList<String> storage = new ArrayList<>();
-
+	private static ArrayList<String> storage = new ArrayList<>();
+	public final String SPACE = " ";
+	
 	public String reverseText(String text) {
-		final String SPACE = " ";
 		String[] words = text.split(SPACE);
 		StringBuilder result = new StringBuilder();
 		Arrays.stream(words).forEach(word -> reversWord(word));
@@ -34,9 +34,9 @@ public class Anagram {
 		while (leftIndex < rightIndex) {
 			if (isLetter(chars[leftIndex])) {
 				if (isLetter(chars[rightIndex])) {
-					char tempChar = chars[leftIndex];
+					char leftSymbol = chars[leftIndex];
 					chars[leftIndex] = chars[rightIndex];
-					chars[rightIndex] = tempChar;
+					chars[rightIndex] = leftSymbol;
 					leftIndex++;
 					rightIndex--;
 				} else {
