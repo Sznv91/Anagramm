@@ -2,22 +2,17 @@ package com.foxminded.anagram;
 
 import static java.lang.Character.isLetter;
 
-public class Anagram {
+import java.util.Arrays;
 
-	public String reverseText(String text) {
+public class Anagram {
+	
+	public void reverseText(String text) {
 		final String SPACE = " ";
 		String[] words = text.split(SPACE);
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < words.length; i++) {
-			result.append(reversWord(words[i]));
-			if (i != words.length - 1) {
-				result.append(SPACE);
-			}
-		}
-		return result.toString();
+		Arrays.stream(words).forEach(word -> reversWord(word));
 	}
 
-	private String reversWord(String word) {
+	private void reversWord(String word) {
 		char[] chars = word.toCharArray();
 		int rightIndex = chars.length - 1;
 		int leftIndex = 0;
@@ -36,6 +31,6 @@ public class Anagram {
 				leftIndex++;
 			}
 		}
-		return new String(chars);
+		System.out.print(new String(chars) + " ");
 	}
 }
