@@ -4,7 +4,7 @@ import static java.lang.Character.isLetter;
 
 public class Anagram {
 
-	public final String SPACE = " ";
+	public static final String SPACE = " ";
 
 	public String reverseText(String text) {
 		String[] words = text.split(SPACE);
