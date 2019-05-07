@@ -7,8 +7,13 @@ public class Anagram {
 	public static final String SPACE = " ";
 
 	public String reverseText(String text) {
-		String[] words = text.split(SPACE);
+		String[] words;
 		StringBuilder result = new StringBuilder();
+		if (text.equals(SPACE)) {
+			return SPACE;
+		} else {
+			words = text.split(SPACE);
+		}
 		for (int i = 0; i < words.length; i++) {
 			result.append(reversWord(words[i]));
 			if (i != words.length - 1) {
