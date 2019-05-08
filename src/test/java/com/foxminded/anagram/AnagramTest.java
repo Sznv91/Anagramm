@@ -2,22 +2,20 @@ package com.foxminded.anagram;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AnagramTest {
 
 	@Test
-	void testReverseText() {
-		// fail("Not yet implemented");
+	void ReverseText_t35t_Str1ng_Returnedt35t_gnr1tS() {
 		Anagram anagram = new Anagram();
-		String actual = anagram.reverseText("n1tr0 Sp33d");
-		String expected = "r1tn0 dp33S";
+		String actual = anagram.reverseText("t35t Str1ng");
+		String expected = "t35t gnr1tS";
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void emptyEntry() {
+	void ReverseText_Empty_Empty() {
 		Anagram anagram = new Anagram();
 		String actual = anagram.reverseText("");
 		String expected = "";
@@ -25,7 +23,7 @@ class AnagramTest {
 	}
 
 	@Test
-	void spaceEntry() {
+	void ReverseText_SPACE_SPACE() {
 		Anagram anagram = new Anagram();
 		String actual = anagram.reverseText(" ");
 		String expected = " ";

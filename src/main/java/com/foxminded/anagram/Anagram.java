@@ -10,7 +10,7 @@ public class Anagram {
 		String[] words;
 		StringBuilder result = new StringBuilder();
 		if (text.equals(SPACE)) {
-			return SPACE;
+			return text;
 		} else {
 			words = text.split(SPACE);
 		}
