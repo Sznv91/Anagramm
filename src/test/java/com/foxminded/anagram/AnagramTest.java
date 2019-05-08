@@ -8,7 +8,7 @@ public class AnagramTest {
 	private Anagram anagram;
 
 	@Test
-	public void givenNull_whenReverseText_Null() {
+	public void givenNull_whenReverseText_thenNull() {
 		anagram = new Anagram();
 		String actual = anagram.reverseText(null);
 		String expected = null;
