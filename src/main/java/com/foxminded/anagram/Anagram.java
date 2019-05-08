@@ -7,12 +7,13 @@ public class Anagram {
 	public static final String SPACE = " ";
 
 	public String reverseText(String text) {
-		String[] words;
 		StringBuilder result = new StringBuilder();
-		if (isSpace(text)) {
-			return text;
-		} else {
+		String[] words;
+		try {
 			words = text.split(SPACE);
+		} catch (NullPointerException e) {
+			System.out.println("Exeption: text is null");
+			return null;
 		}
 		for (int i = 0; i < words.length; i++) {
 			result.append(reversWord(words[i]));
@@ -44,20 +45,5 @@ public class Anagram {
 		}
 		return new String(chars);
 	}
-	
-	private boolean isSpace(String text) {
-		int charCount = 0;		
-		for (int i = 0; i < text.length(); i++) {
-			if (text.substring(i, i + 1).matches(SPACE)) {
-				
-			} else {
-				charCount++;
-			}
-		}
-		if (charCount > 0) {
-			return false;
-		} else {
-			return true;
-		}
-	}
+
 }
