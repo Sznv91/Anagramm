@@ -9,11 +9,10 @@ public class Anagram {
 	public String reverseText(String text) {
 		StringBuilder result = new StringBuilder();
 		String[] words;
-		try {
-			words = text.split(SPACE);
-		} catch (NullPointerException e) {
-			System.out.println("Exeption: text is null");
+		if (text == null) {
 			return null;
+		} else {
+			words = text.split(SPACE);
 		}
 		for (int i = 0; i < words.length; i++) {
 			result.append(reversWord(words[i]));

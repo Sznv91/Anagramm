@@ -2,48 +2,49 @@ package com.foxminded.anagram;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AnagramTest {
+
 	private Anagram anagram;
+
+	@BeforeEach
+	public void createAnagramInstance() {
+		anagram = new Anagram();
+	}
 
 	@Test
 	public void givenNull_whenReverseText_thenNull() {
-		anagram = new Anagram();
 		String actual = anagram.reverseText(null);
-		String expected = null;
-		assertEquals(expected, actual);
+		assertNull(actual);
 	}
 
 	@Test
 	public void givenEmptyText_whenReverseText_thenEmptyText() {
-		anagram = new Anagram();
-		String actual = anagram.reverseText("");
 		String expected = "";
+		String actual = anagram.reverseText("");
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	public void givenText_whenReverseText_thenReverseText() {
-		anagram = new Anagram();
-		String actual = anagram.reverseText("Test String");
+	public void givenText_whenReverseText_thenReversedText() {
 		String expected = "tseT gnirtS";
+		String actual = anagram.reverseText("Test String");
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void givenTextWithSpec_whenReverseText_thenReverseTextWithSpec() {
-		anagram = new Anagram();
-		String actual = anagram.reverseText("T35t_ S@tr1ng");
+	public void givenTextWithSpecialSymbol_whenReverseText_thenReversedTextWithSpecialSymbol() {
 		String expected = "t35T_ g@nr1tS";
+		String actual = anagram.reverseText("T35t_ S@tr1ng");
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void givenSpecSymbols_whenReverseText_thenSpecSymbols() {
-		anagram = new Anagram();
-		String actual = anagram.reverseText("!2% @#12");
+	public void givenSpecialSymbols_whenReverseText_thenSpecialSymbols() {
 		String expected = "!2% @#12";
+		String actual = anagram.reverseText("!2% @#12");
 		assertEquals(expected, actual);
 	}
 }
