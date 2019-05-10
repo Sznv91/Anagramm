@@ -7,12 +7,11 @@ public class Anagram {
 	public static final String SPACE = " ";
 
 	public String reverseText(String text) {
-		StringBuilder result = new StringBuilder();
-		String[] words;
 		if (text == null) {
 			return null;
 		}
-		words = text.split(SPACE);
+		StringBuilder result = new StringBuilder();
+		String[] words = text.split(SPACE);
 		for (int i = 0; i < words.length; i++) {
 			result.append(reversWord(words[i]));
 			if (i != words.length - 1) {
