@@ -11,9 +11,8 @@ public class Anagram {
 		String[] words;
 		if (text == null) {
 			return null;
-		} else {
-			words = text.split(SPACE);
 		}
+		words = text.split(SPACE);
 		for (int i = 0; i < words.length; i++) {
 			result.append(reversWord(words[i]));
 			if (i != words.length - 1) {

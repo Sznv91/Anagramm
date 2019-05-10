@@ -1,19 +1,19 @@
 package com.foxminded.anagram;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 public class AnagramTest {
 
 	private Anagram anagram;
 
-	@BeforeEach
+	@Before
 	public void createAnagramInstance() {
 		anagram = new Anagram();
 	}
-
+	
 	@Test
 	public void givenNull_whenReverseText_thenNull() {
 		String actual = anagram.reverseText(null);
@@ -42,7 +42,7 @@ public class AnagramTest {
 	}
 
 	@Test
-	public void givenSpecialSymbols_whenReverseText_thenSpecialSymbols() {
+	public void givenSpecialSymbols_whenReverse_thenSameText() {
 		String expected = "!2% @#12";
 		String actual = anagram.reverseText("!2% @#12");
 		assertEquals(expected, actual);
