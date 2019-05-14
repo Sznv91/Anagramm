@@ -10,7 +10,7 @@ public class AnagramTest {
 	private Anagram anagram;
 
 	@Before
-	public void ReverseTextSetUp() {
+	public void setUp() {
 		anagram = new Anagram();
 	}
 	
